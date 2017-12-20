@@ -220,6 +220,7 @@
     <Compile Include="Models\JewelryType.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\NewClientModel.cs" />
+    <Compile Include="Models\NewClientViewModel.cs" />
     <Compile Include="Models\OJewelryDC.cs" />
     <Compile Include="Models\Vendor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -284,6 +285,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\AddCompany.cshtml" />
     <Content Include="Views\Home\NewClient.cshtml" />
+    <Content Include="Views\Home\DumpCompanies.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

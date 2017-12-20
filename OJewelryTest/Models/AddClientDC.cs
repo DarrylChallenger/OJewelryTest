@@ -40,5 +40,7 @@ namespace OJewelryTest.Models
         }
 
         public System.Data.Entity.DbSet<OJewelryTest.Models.NewClientModel> NewClientModels { get; set; }
+
+        //public System.Data.Entity.DbSet<OJewelryTest.Models.NewClientViewModel> NewClientViewModels { get; set; }
     }
 }

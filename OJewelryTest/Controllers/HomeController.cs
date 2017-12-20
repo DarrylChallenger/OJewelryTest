@@ -99,7 +99,58 @@ namespace OJewelryTest.Controllers
 
         public ActionResult NewClient()
         {
-            return View();
+            /*
+            // Pass in companies for dropdown
+            var dataContext = new NewClientViewModel();
+
+            var companies = dataContext.Companies.ToList().Select(c => c).ToList();
+            return View(companies);
+            */
+            var dc = new OJewelryDC();
+            NewClientViewModel m = new NewClientViewModel();
+            return View(m);
+
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult NewClient(FormCollection form)
+        {
+            // save data and go to client list. On error, go back to form
+            // Save contact & company
+            var dc = new OJewelryDC();
+            Client cli = new Client()
+            {
+                Name = "Test2",
+                Phone = "1234562",
+                Email="Test2@Test.com"
+            };
+           
+            dc.Clients.Add(cli);
+            Company com = new Company()
+            {
+                Name = "CoName",
+                ClientID = cli.Id
+            };
+            dc.Companies.Add(com);
+            dc.SaveChanges();
+            return View("index");
+        }
+
+        public ActionResult DumpCompanies()
+        {
+            var dc = new OJewelryDC();
+            NewClientViewModel m = new NewClientViewModel();
+            var comps = dc.Companies.ToList().Select(c => c).ToList();
+            //iterate thru comps, add to m.companies
+            m.Companies = new List<SelectListItem>();
+            foreach (Company co in comps)
+            {
+                SelectListItem i = new SelectListItem();
+                i.Text = co.Name;
+                i.Value = co.Id.ToString();
+                m.Companies.Add(i);
+            }
+            return View(comps);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿@{
+﻿@Model OJewelryTest.Models.NewClientViewModel
+
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -8,19 +10,20 @@
 
 <div>
     <p> Select a Contact</p>
-        <div class="row">
-            <div class="col-sm-4"><p>Name</p></div>
-            <div class="col-sm-1"><p>Phone</p></div>
-            <div class="col-sm-3"><p>Email</p></div>
-            <div class="col-sm-4"><p>Company</p></div>
-        </div>
-@foreach (var m in ViewData.Model)
-{
     <div class="row">
-        <div class="col-sm-4"><p>@m.ClientName</p></div>
-        <div class="col-sm-1"><p>@m.ClientPhone</p></div>
-        <div class="col-sm-3"><p>@m.ClientEmail</p></div>
-        <div class="col-sm-4"><p>@m.CompanyName</p></div>
+        <div class="col-sm-4"><p>Name</p></div>
+        <div class="col-sm-1"><p>Phone</p></div>
+        <div class="col-sm-3"><p>Email</p></div>
+        <div class="col-sm-4"><p>Company</p></div>
     </div>
-}
+    @foreach (var m in ViewData.Model)
+    {
+        <div class="row">
+            <div class="col-sm-4"><p>@m.ClientName</p></div>
+            <div class="col-sm-1"><p>@m.ClientPhone</p></div>
+            <div class="col-sm-3"><p>@m.ClientEmail</p></div>
+            <div class="col-sm-4"><p>@m.CompanyName</p></div>
+        </div>
+    }
+    @Html.ActionLink("Add new client", "NewClient", "Home")
 </div>
